@@ -10,3 +10,7 @@ let wind = document.querySelector("#value_wind");
 let iconWeather = document.querySelector(".icon_weather");
 let degreesMax = document.querySelector("#degrees_max");
 let degreesMin = document.querySelector("#degrees_min");
+
+let currentCityName = "...";
+currentCityName = new URLSearchParams(window.location.search).get("city");
+newCity.innerHTML = currentCityName;
