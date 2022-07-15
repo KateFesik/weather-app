@@ -15,6 +15,8 @@ let currentCityName = "...";
 currentCityName = new URLSearchParams(window.location.search).get("city");
 newCity.innerHTML = currentCityName;
 
+requestWeatherByCity();
+
 //request weather by location
 function requestWeatherByLocation() {
   navigator.geolocation.getCurrentPosition(function (position) {
@@ -27,3 +29,9 @@ function requestWeatherByLocation() {
 
 let btnLocation = document.querySelector(".btn_location");
 btnLocation.addEventListener("click", requestWeatherByLocation);
+
+//request weather by new city
+function requestWeatherByCityy() {
+  let apiUrlByCity = `https://api.openweathermap.org/data/2.5/weather?q=${currentCityName}&units=metric&APPID=${apiKey}`;
+  axios.get(apiUrlByCity).then(showCityOnLocation);
+}
