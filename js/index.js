@@ -78,3 +78,34 @@ function setDayTime() {
   let dateInfo = document.querySelector(".date_info");
   dateInfo.innerHTML = dayTime();
 }
+
+//change type temperature
+let metric = "celsius";
+function changeTempValueToC(event) {
+  event.preventDefault();
+  if (metric === "celsius") {
+    tempValue.innerHTML = Math.round(tempValue.innerHTML * 1.8 + 32);
+    minTemp.innerHTML = Math.round(minTemp.innerHTML * 1.8 + 32);
+    maxTemp.innerHTML = Math.round(maxTemp.innerHTML * 1.8 + 32);
+    degreesMax.innerHTML = "°C";
+    degreesMin.innerHTML = "°F";
+    metric = "fahrenheit";
+  }
+}
+function changeTempValueToF(event) {
+  event.preventDefault();
+  if (metric === "fahrenheit") {
+    tempValue.innerHTML = Math.round((5 / 9) * (tempValue.innerHTML - 32));
+    minTemp.innerHTML = Math.round((5 / 9) * (minTemp.innerHTML - 32));
+    maxTemp.innerHTML = Math.round((5 / 9) * (maxTemp.innerHTML - 32));
+    degreesMax.innerHTML = "°C";
+    degreesMin.innerHTML = "°F";
+    metric = "celsius";
+  }
+}
+let tempFahrenheit = document.querySelector("#fahrenheit");
+let tempCelsius = document.querySelector("#celsius");
+tempValue = document.querySelector("#temp_value");
+
+tempFahrenheit.addEventListener("click", changeTempValueToC);
+tempCelsius.addEventListener("click", changeTempValueToF);
