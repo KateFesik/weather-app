@@ -109,3 +109,10 @@ tempValue = document.querySelector("#temp_value");
 
 tempFahrenheit.addEventListener("click", changeTempValueToC);
 tempCelsius.addEventListener("click", changeTempValueToF);
+
+//go to second.html
+let weatherButton = document.querySelector(".btn_go_second");
+weatherButton.addEventListener("click", goToSecond);
+function goToSecond() {
+  window.location.href = "second.html";
+}
