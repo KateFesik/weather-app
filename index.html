@@ -7,6 +7,34 @@
   </head>
   <body>
     <div class="container">
+      <div class="card_main_weather">
+        <h1 id="city_name">...</h1>
+        <h4 class="date_info">...</h4>
+        <h2 class="temp_info">
+          <span id="temp_value">...</span>
+          <span class="metric">
+            <span id="celsius">°C</span> | <span id="fahrenheit">°F</span>
+          </span>
+        </h2>
+
+        <h3 class="main_info">...</h3>
+        <h4 class="temp_range">
+          ⬆<span id="max_temp">...</span> <span id="degrees_max">°C</span> ⬇
+          <span id="min_temp">...</span>
+          <span id="degrees_min">°C</span>
+        </h4>
+
+        <img class="icon_weather" />
+        <button type="button" class="btn_location">
+          <span class="button_text">current</span>
+          <span class="button_icon">
+            <ion-icon name="location-outline"></ion-icon>
+          </span>
+        </button>
+        <button type="button" class="btn_go_second">search city</button>
+        <h4 class="humidity">☔️ <span id="value_humidity">...</span> %</h4>
+        <h4 class="wind">💨 <span id="value_wind">...</span> km/h</h4>
+      </div>
       <footer>
         <p class="sign">Coded by Kateryna Ivanova</p>
       </footer>
