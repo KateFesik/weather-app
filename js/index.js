@@ -31,7 +31,20 @@ let btnLocation = document.querySelector(".btn_location");
 btnLocation.addEventListener("click", requestWeatherByLocation);
 
 //request weather by new city
-function requestWeatherByCityy() {
+function requestWeatherByCity() {
   let apiUrlByCity = `https://api.openweathermap.org/data/2.5/weather?q=${currentCityName}&units=metric&APPID=${apiKey}`;
-  axios.get(apiUrlByCity).then(showCityOnLocation);
+  axios.get(apiUrlByCity).then(showWeather);
+}
+
+//show weather by current city
+function showWeather(response) {
+  newCity.innerHTML = response.data.name;
+  tempValue.innerHTML = Math.round(response.data.main.temp);
+  mainInfo.innerHTML = response.data.weather[0].main;
+  maxTemp.innerHTML = Math.round(response.data.main.temp_max);
+  minTemp.innerHTML = Math.round(response.data.main.temp_min);
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  let icon = response.data.weather[0].icon;
+  iconWeather.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 }
