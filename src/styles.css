@@ -195,3 +195,9 @@ h4 {
 .col:hover {
   color: #7c3e66;
 }
+.source_code {
+  color: #f2ebe9;
+}
+.source_code:hover {
+  color: #7c3e66;
+}
