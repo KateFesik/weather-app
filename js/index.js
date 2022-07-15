@@ -48,3 +48,33 @@ function showWeather(response) {
   let icon = response.data.weather[0].icon;
   iconWeather.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 }
+
+//add day time
+let date = new Date();
+setDayTime();
+function dayTime() {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[date.getDay()];
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let time;
+  if (minutes < 10) {
+    time = `${hours}:0${minutes}`;
+  } else {
+    time = `${hours}:${minutes}`;
+  }
+  return `${day} ${time}`;
+}
+function setDayTime() {
+  let dateInfo = document.querySelector(".date_info");
+  dateInfo.innerHTML = dayTime();
+}
