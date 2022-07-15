@@ -23,7 +23,7 @@ function requestWeatherByLocation() {
     let lat = position.coords.latitude.toFixed(2);
     let long = position.coords.longitude.toFixed(2);
     let apiUrlLocation = `https://api.openweathermap.org/data/2.5/weather?&lat=${lat}&lon=${long}&units=metric&APPID=${apiKey}`;
-    axios.get(apiUrlLocation).then(showCityOnLocation);
+    axios.get(apiUrlLocation).then(showWeather);
   });
 }
 
