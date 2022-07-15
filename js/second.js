@@ -18,3 +18,39 @@ document
   });
 
 let inputCity = document.querySelector("#input_city");
+
+document.querySelector("#london").addEventListener("click", function (event) {
+  event.preventDefault();
+  cityName = document.querySelector("#london").innerHTML.trim();
+  addNewCity();
+});
+
+document.querySelector("#larnaca").addEventListener("click", function (event) {
+  event.preventDefault();
+  cityName = document.querySelector("#larnaca").innerHTML.trim();
+  addNewCity();
+});
+
+document.querySelector("#berlin").addEventListener("click", function (event) {
+  event.preventDefault();
+  cityName = document.querySelector("#berlin").innerHTML.trim();
+  addNewCity();
+});
+
+document.querySelector("#lviv").addEventListener("click", function (event) {
+  event.preventDefault();
+  cityName = document.querySelector("#lviv").innerHTML.trim();
+  addNewCity();
+});
+
+document.querySelector("#cologne").addEventListener("click", function (event) {
+  event.preventDefault();
+  cityName = document.querySelector("#cologne").innerHTML.trim();
+  addNewCity();
+});
+
+document.querySelector("#born").addEventListener("click", function (event) {
+  event.preventDefault();
+  cityName = document.querySelector("#born").innerHTML.trim();
+  addNewCity();
+});
