@@ -14,3 +14,16 @@ let degreesMin = document.querySelector("#degrees_min");
 let currentCityName = "...";
 currentCityName = new URLSearchParams(window.location.search).get("city");
 newCity.innerHTML = currentCityName;
+
+//request weather by location
+function requestWeatherByLocation() {
+  navigator.geolocation.getCurrentPosition(function (position) {
+    let lat = position.coords.latitude.toFixed(2);
+    let long = position.coords.longitude.toFixed(2);
+    let apiUrlLocation = `https://api.openweathermap.org/data/2.5/weather?&lat=${lat}&lon=${long}&units=metric&APPID=${apiKey}`;
+    axios.get(apiUrlLocation).then(showCityOnLocation);
+  });
+}
+
+let btnLocation = document.querySelector(".btn_location");
+btnLocation.addEventListener("click", requestWeatherByLocation);
