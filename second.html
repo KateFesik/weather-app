@@ -4,7 +4,7 @@
     <title>Change city</title>
     <meta charset="UTF-8" />
 
-    // add bootstrap
+    <!-- // add bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
 
-    //add fonts
+    <!-- //add fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Train+One&display=swap"
@@ -27,6 +27,29 @@
   </head>
   <body>
     <div class="container">
+      <div class="card_change_city">
+        <input
+          type="search"
+          autofocus="on"
+          placeholder="Input the new city"
+          id="input_city"
+        />
+
+        <button type="button" class="btn_add_city">Add</button>
+
+        <div class="new_city container">
+          <div class="row">
+            <div class="col" id="lviv">Lviv</div>
+            <div class="col" id="berlin">Berlin</div>
+            <div class="col" id="london">London</div>
+          </div>
+          <div class="row">
+            <div class="col" id="larnaca">Larnaca</div>
+            <div class="col" id="born">Born</div>
+            <div class="col" id="cologne">Cologne</div>
+          </div>
+        </div>
+      </div>
       <footer>
         <p class="sign">Coded by Kateryna Ivanova</p>
       </footer>
