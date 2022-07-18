@@ -1,6 +1,7 @@
 let apiKey = "6044b52d072e537df7be674146654ba7";
 
-let newCity = document.querySelector("#city_name");
+let nameCity = document.querySelector("#city_name");
+let nameCounty = document.querySelector("#county_name");
 let tempValue = document.querySelector("#temp_value");
 let mainInfo = document.querySelector(".main_info");
 let maxTemp = document.querySelector("#max_temp");
@@ -13,7 +14,7 @@ let degreesMin = document.querySelector("#degrees_min");
 
 let currentCityName = "...";
 currentCityName = new URLSearchParams(window.location.search).get("city");
-newCity.innerHTML = currentCityName;
+nameCity.innerHTML = currentCityName;
 
 requestWeatherByCity();
 
@@ -38,7 +39,9 @@ function requestWeatherByCity() {
 
 //show weather by current city
 function showWeather(response) {
-  newCity.innerHTML = response.data.name;
+  let getCountryNames = new Intl.DisplayNames(["en"], { type: "region" });
+  nameCounty.innerHTML = getCountryNames.of(response.data.sys.country);
+  nameCity.innerHTML = response.data.name;
   tempValue.innerHTML = Math.round(response.data.main.temp);
   mainInfo.innerHTML = response.data.weather[0].main;
   maxTemp.innerHTML = Math.round(response.data.main.temp_max);
