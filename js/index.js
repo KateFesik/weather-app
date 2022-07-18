@@ -11,6 +11,7 @@ let wind = document.querySelector("#value_wind");
 let iconWeather = document.querySelector(".icon_weather");
 let degreesMax = document.querySelector("#degrees_max");
 let degreesMin = document.querySelector("#degrees_min");
+let dateInfo = document.querySelector("#date");
 
 let currentCityName = "...";
 currentCityName = new URLSearchParams(window.location.search).get("city");
@@ -50,12 +51,12 @@ function showWeather(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
   let icon = response.data.weather[0].icon;
   iconWeather.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  dateInfo.innerHTML = formatDate(response.data.dt * 1000);
 }
 
-//add day time
-let date = new Date();
-setDayTime();
-function dayTime() {
+//add last updated time
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -65,7 +66,6 @@ function dayTime() {
     "Friday",
     "Saturday",
   ];
-
   let day = days[date.getDay()];
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -77,10 +77,34 @@ function dayTime() {
   }
   return `${day} ${time}`;
 }
-function setDayTime() {
-  let dateInfo = document.querySelector(".date_info");
-  dateInfo.innerHTML = dayTime();
-}
+// let date = new Date();
+// setDayTime();
+// function dayTime() {
+//   let days = [
+//     "Sunday",
+//     "Monday",
+//     "Tuesday",
+//     "Wednesday",
+//     "Thursday",
+//     "Friday",
+//     "Saturday",
+//   ];
+
+//   let day = days[date.getDay()];
+//   let hours = date.getHours();
+//   let minutes = date.getMinutes();
+//   let time;
+//   if (minutes < 10) {
+//     time = `${hours}:0${minutes}`;
+//   } else {
+//     time = `${hours}:${minutes}`;
+//   }
+//   return `${day} ${time}`;
+// }
+// function setDayTime() {
+//   let dateInfo = document.querySelector(".date_info");
+//   dateInfo.innerHTML = dayTime();
+// }
 
 //change type temperature
 let metric = "celsius";
