@@ -108,8 +108,9 @@ h4 {
 .date_info {
   top: 65px;
 }
-.main_info {
+.description {
   top: 136px;
+  font-size: 24px;
 }
 .temp_range {
   top: 170px;

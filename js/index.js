@@ -3,7 +3,7 @@ let apiKey = "6044b52d072e537df7be674146654ba7";
 let nameCity = document.querySelector("#city_name");
 let nameCounty = document.querySelector("#county_name");
 let tempValue = document.querySelector("#temp_value");
-let mainInfo = document.querySelector(".main_info");
+let descriptionInfo = document.querySelector(".description");
 let maxTemp = document.querySelector("#max_temp");
 let minTemp = document.querySelector("#min_temp");
 let humidity = document.querySelector("#value_humidity");
@@ -45,7 +45,7 @@ function showWeather(response) {
   nameCounty.innerHTML = getCountryNames.of(response.data.sys.country);
   nameCity.innerHTML = response.data.name;
   tempValue.innerHTML = Math.round(response.data.main.temp);
-  mainInfo.innerHTML = response.data.weather[0].main;
+  descriptionInfo.innerHTML = response.data.weather[0].description;
   maxTemp.innerHTML = Math.round(response.data.main.temp_max);
   minTemp.innerHTML = Math.round(response.data.main.temp_min);
   humidity.innerHTML = response.data.main.humidity;
@@ -97,7 +97,7 @@ function changeTempValueToC(event) {
     tempValue.innerHTML = Math.round(tempValue.innerHTML * 1.8 + 32);
     minTemp.innerHTML = Math.round(minTemp.innerHTML * 1.8 + 32);
     maxTemp.innerHTML = Math.round(maxTemp.innerHTML * 1.8 + 32);
-    degreesMax.innerHTML = "°C";
+    degreesMax.innerHTML = "°F";
     degreesMin.innerHTML = "°F";
     metric = "fahrenheit";
   }
@@ -109,7 +109,8 @@ function changeTempValueToF(event) {
     minTemp.innerHTML = Math.round((5 / 9) * (minTemp.innerHTML - 32));
     maxTemp.innerHTML = Math.round((5 / 9) * (maxTemp.innerHTML - 32));
     degreesMax.innerHTML = "°C";
-    degreesMin.innerHTML = "°F";
+    degreesMin.innerHTML = "°C";
+
     metric = "celsius";
   }
 }

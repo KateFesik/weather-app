@@ -19,38 +19,74 @@ document
 
 let inputCity = document.querySelector("#input_city");
 
-document.querySelector("#london").addEventListener("click", function (event) {
+let popularCities = [
+  "Paris",
+  "London",
+  "Warsaw",
+  "Vienna",
+  "Lisbon",
+  "Reykjavik",
+  "Ottawa",
+  "Havana",
+  "Buenos Aires",
+  "Cape Town",
+  "Sydney",
+  "Tokyo",
+];
+
+let firstCity = document.querySelector("#first_city");
+firstCity.addEventListener("click", function (event) {
   event.preventDefault();
-  cityName = document.querySelector("#london").innerHTML.trim();
+  cityName = document.querySelector("#first_city").innerHTML.trim();
   addNewCity();
 });
 
-document.querySelector("#larnaca").addEventListener("click", function (event) {
+let secondCity = document.querySelector("#second_city");
+secondCity.addEventListener("click", function (event) {
   event.preventDefault();
-  cityName = document.querySelector("#larnaca").innerHTML.trim();
+  cityName = document.querySelector("#second_city").innerHTML.trim();
   addNewCity();
 });
 
-document.querySelector("#berlin").addEventListener("click", function (event) {
+let thirdCity = document.querySelector("#third_city");
+thirdCity.addEventListener("click", function (event) {
   event.preventDefault();
-  cityName = document.querySelector("#berlin").innerHTML.trim();
+  cityName = document.querySelector("#third_city").innerHTML.trim();
   addNewCity();
 });
 
-document.querySelector("#lviv").addEventListener("click", function (event) {
+let fourthCity = document.querySelector("#fourth_city");
+fourthCity.addEventListener("click", function (event) {
   event.preventDefault();
-  cityName = document.querySelector("#lviv").innerHTML.trim();
+  cityName = document.querySelector("#fourth_city").innerHTML.trim();
   addNewCity();
 });
 
-document.querySelector("#cologne").addEventListener("click", function (event) {
+let fifthCity = document.querySelector("#fifth_city");
+fifthCity.addEventListener("click", function (event) {
   event.preventDefault();
-  cityName = document.querySelector("#cologne").innerHTML.trim();
+  cityName = document.querySelector("#fifth_city").innerHTML.trim();
   addNewCity();
 });
 
-document.querySelector("#born").addEventListener("click", function (event) {
+let sixthCity = document.querySelector("#sixth_city");
+sixthCity.addEventListener("click", function (event) {
   event.preventDefault();
-  cityName = document.querySelector("#born").innerHTML.trim();
+  cityName = document.querySelector("#sixth_city").innerHTML.trim();
   addNewCity();
 });
+
+showPopularCities();
+function showPopularCities() {
+  let citiesList = [...popularCities]
+    .sort(() => {
+      return Math.random() - 0.5;
+    })
+    .slice(0, 6);
+  firstCity.innerHTML = citiesList[0];
+  secondCity.innerHTML = citiesList[1];
+  thirdCity.innerHTML = citiesList[2];
+  fourthCity.innerHTML = citiesList[3];
+  fifthCity.innerHTML = citiesList[4];
+  sixthCity.innerHTML = citiesList[5];
+}
