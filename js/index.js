@@ -13,9 +13,14 @@ let degreesMax = document.querySelector("#degrees_max");
 let degreesMin = document.querySelector("#degrees_min");
 let dateInfo = document.querySelector("#date");
 
-let currentCityName = "...";
-currentCityName = new URLSearchParams(window.location.search).get("city");
-nameCity.innerHTML = currentCityName;
+let currentCityName;
+setCurrentCityName();
+function setCurrentCityName() {
+  currentCityName = new URLSearchParams(window.location.search).get("city");
+  if (currentCityName != undefined) {
+    nameCity.innerHTML = currentCityName;
+  }
+}
 
 requestWeatherByCity();
 
@@ -124,6 +129,7 @@ tempCelsius.addEventListener("click", changeTempValueToF);
 //go to second.html
 let weatherButton = document.querySelector(".btn_go_second");
 weatherButton.addEventListener("click", goToSecond);
+
 function goToSecond(event) {
   event.preventDefault();
   window.location.href = "second.html";
