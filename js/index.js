@@ -50,8 +50,18 @@ function showWeather(response) {
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
   let icon = response.data.weather[0].icon;
-  iconWeather.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+  setAttributes(iconWeather, {
+    src: `http://openweathermap.org/img/wn/${icon}@2x.png`,
+    alt: response.data.weather[0].main,
+  });
   dateInfo.innerHTML = formatDate(response.data.dt * 1000);
+}
+
+function setAttributes(el, attrs) {
+  for (var key in attrs) {
+    el.setAttribute(key, attrs[key]);
+  }
 }
 
 //add last updated time
