@@ -20,7 +20,8 @@ nameCity.innerHTML = currentCityName;
 requestWeatherByCity();
 
 //request weather by location
-function requestWeatherByLocation() {
+function requestWeatherByLocation(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(function (position) {
     let lat = position.coords.latitude.toFixed(2);
     let long = position.coords.longitude.toFixed(2);
@@ -87,34 +88,6 @@ function formatDate(timestamp) {
   }
   return `${day} ${time}`;
 }
-// let date = new Date();
-// setDayTime();
-// function dayTime() {
-//   let days = [
-//     "Sunday",
-//     "Monday",
-//     "Tuesday",
-//     "Wednesday",
-//     "Thursday",
-//     "Friday",
-//     "Saturday",
-//   ];
-
-//   let day = days[date.getDay()];
-//   let hours = date.getHours();
-//   let minutes = date.getMinutes();
-//   let time;
-//   if (minutes < 10) {
-//     time = `${hours}:0${minutes}`;
-//   } else {
-//     time = `${hours}:${minutes}`;
-//   }
-//   return `${day} ${time}`;
-// }
-// function setDayTime() {
-//   let dateInfo = document.querySelector(".date_info");
-//   dateInfo.innerHTML = dayTime();
-// }
 
 //change type temperature
 let metric = "celsius";
@@ -150,6 +123,7 @@ tempCelsius.addEventListener("click", changeTempValueToF);
 //go to second.html
 let weatherButton = document.querySelector(".btn_go_second");
 weatherButton.addEventListener("click", goToSecond);
-function goToSecond() {
+function goToSecond(event) {
+  event.preventDefault();
   window.location.href = "second.html";
 }

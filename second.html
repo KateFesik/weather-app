@@ -28,14 +28,22 @@
   <body>
     <div class="container">
       <div class="card_change_city">
-        <input
-          type="search"
-          autofocus="on"
-          placeholder="Input the new city"
-          id="input_city"
-        />
-
-        <button type="button" class="btn_add_city">Add</button>
+        <form>
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                autofocus="on"
+                placeholder="Input the new city"
+                class="form-control"
+                id="input_city"
+              />
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn_add_city">Add</button>
+            </div>
+          </div>
+        </form>
 
         <div class="new_city container">
           <div class="row">
