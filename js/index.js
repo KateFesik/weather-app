@@ -29,8 +29,8 @@ function requestWeatherByLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(function (position) {
     let lat = position.coords.latitude.toFixed(2);
-    let long = position.coords.longitude.toFixed(2);
-    let apiUrlLocation = `https://api.openweathermap.org/data/2.5/weather?&lat=${lat}&lon=${long}&units=metric&APPID=${apiKey}`;
+    let lon = position.coords.longitude.toFixed(2);
+    let apiUrlLocation = `https://api.openweathermap.org/data/2.5/weather?&lat=${lat}&lon=${lon}&units=metric&APPID=${apiKey}`;
     axios.get(apiUrlLocation).then(showWeather);
   });
 }
@@ -62,6 +62,8 @@ function showWeather(response) {
     alt: response.data.weather[0].main,
   });
   dateInfo.innerHTML = formatDate(response.data.dt * 1000);
+
+  getForecast(response.data.coord);
 }
 
 function setAttributes(el, attrs) {
@@ -133,4 +135,50 @@ weatherButton.addEventListener("click", goToSecond);
 function goToSecond(event) {
   event.preventDefault();
   window.location.href = "second.html";
+}
+
+//add forecast
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function getForecast(coord) {
+  let apiForecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiForecastUrl).then(displayForecast);
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+      <div class="col-2">
+        <div class="weather-forecast-date">${formatForecastDate(
+          forecastDay.dt
+        )}</div>
+        <img
+          class="icons_daily"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          width="42"
+        />
+        <div class="weather-forecast-temperatures">
+          <span id="forecast_temp">${Math.round(forecastDay.temp.day)}</span>
+          <span id="forecast_degrees">°C</span>
+        </div>
+      </div>
+    `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }

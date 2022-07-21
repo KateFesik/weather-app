@@ -152,17 +152,7 @@ h4 {
   position: absolute;
   top: 50px;
 }
-.days_of_week {
-  font-size: 20px;
-}
 
-.icons_daily {
-  font-size: 30px;
-}
-
-.temp_daily {
-  font-size: 15px;
-}
 #input_city {
   position: absolute;
   top: 15px;
@@ -193,7 +183,12 @@ h4 {
   left: 10px;
 }
 
-.col:hover {
+#first_city:hover,
+#second_city:hover,
+#third_city:hover,
+#fourth_city:hover,
+#fifth_city:hover,
+#sixth_city:hover {
   color: #7c3e66;
 }
 .source_code {
@@ -204,4 +199,16 @@ h4 {
 }
 #county_name {
   font-size: 25px;
+}
+
+.weather-forecast-date {
+  font-size: 20px;
+}
+
+.weather-forecast-temperatures {
+  font-size: 15px;
+}
+
+.icons_daily {
+  font-size: 30px;
 }
