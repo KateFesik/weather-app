@@ -32,15 +32,15 @@
     <div class="container">
       <div class="card_main_weather">
         <h1>
-          <span id="city_name">Odesa</span>,
-          <span id="county_name">Ukraine</span>
+          <span id="city_name"></span>,
+          <span id="county_name"></span>
         </h1>
         <h4 class="date_info">
           Last update:
           <span id="date"></span>
         </h4>
         <h2 class="temp_info">
-          <span id="temp_value">15</span>
+          <span id="temp_value"></span>
           <span class="metric">
             <span id="celsius">°C</span> | <span id="fahrenheit">°F</span>
           </span>
@@ -48,8 +48,8 @@
 
         <h3 class="description">Clear</h3>
         <h4 class="temp_range">
-          ⬆<span id="max_temp">20</span> <span id="degrees_max">°C</span> ⬇
-          <span id="min_temp">10</span>
+          ⬆<span id="max_temp"></span> <span id="degrees_max">°C</span> ⬇
+          <span id="min_temp"></span>
           <span id="degrees_min">°C</span>
         </h4>
 
@@ -61,56 +61,13 @@
           </span>
         </button>
         <button type="button" class="btn_go_second">search city</button>
-        <h4 class="humidity">☔️ <span id="value_humidity">40</span> %</h4>
-        <h4 class="wind">💨 <span id="value_wind">5</span> km/h</h4>
+        <h4 class="humidity">☔️ <span id="value_humidity"></span> %</h4>
+        <h4 class="wind">💨 <span id="value_wind"></span> km/h</h4>
       </div>
-      <!-- 
-      <div class="card_daily_weather">
-        <h4 class="daily_forecast">DAILY FORECAST</h4>
-        <div class="daily_weather container">
-          <div class="days_of_week row">
-            <div class="col">Thu</div>
-            <div class="col">Fri</div>
-            <div class="col">Sat</div>
-            <div class="col">Sun</div>
-            <div class="col">Mon</div>
-          </div>
-          <div class="icons_daily row">
-            <div class="col">🌤</div>
-            <div class="col">🌧</div>
-            <div class="col">🌥</div>
-            <div class="col">☀️</div>
-            <div class="col">🌤</div>
-          </div>
-          <div class="temp_daily row">
-            <div class="col">20°C</div>
-            <div class="col">18°C</div>
-            <div class="col">19°C</div>
-            <div class="col">24°C</div>
-            <div class="col">22°C</div>
-          </div>
-        </div>
-      </div> -->
 
       <div class="card_daily_weather">
         <h4 class="daily_forecast">DAILY FORECAST</h4>
-        <div class="daily_weather container" id="forecast">
-          <!-- <div class="row">
-            <div class="col-2">
-              <div class="weather-forecast-date">Thu</div>
-              <img
-                class="icons_daily"
-                src="http://openweathermap.org/img/wn/50d@2x.png"
-                alt=""
-                width="42"
-              />
-              <div class="weather-forecast-temperatures">
-                <span id="forecast_temp">20</span>
-                <span id="forecast_degrees">°C</span>
-              </div>
-            </div>
-          </div> -->
-        </div>
+        <div class="daily_weather container" id="forecast"></div>
       </div>
       <footer>
         <p class="sign">

@@ -19,6 +19,9 @@ function setCurrentCityName() {
   currentCityName = new URLSearchParams(window.location.search).get("city");
   if (currentCityName != undefined) {
     nameCity.innerHTML = currentCityName;
+  } else {
+    nameCity.innerHTML = "Odesa";
+    currentCityName = "Odesa";
   }
 }
 
