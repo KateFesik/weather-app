@@ -1,5 +1,7 @@
 let apiKey = "6044b52d072e537df7be674146654ba7";
 
+let metric = "celsius";
+
 let nameCity = document.querySelector("#city_name");
 let nameCounty = document.querySelector("#county_name");
 let tempValue = document.querySelector("#temp_value");
@@ -49,6 +51,7 @@ function requestWeatherByCity() {
 
 //show weather by current city
 function showWeather(response) {
+  metric = "celsius";
   let getCountryNames = new Intl.DisplayNames(["en"], { type: "region" });
   nameCounty.innerHTML = getCountryNames.of(response.data.sys.country);
   nameCity.innerHTML = response.data.name;
@@ -100,7 +103,6 @@ function formatDate(timestamp) {
 }
 
 //change type temperature
-let metric = "celsius";
 function changeTempValueToC(event) {
   event.preventDefault();
   if (metric === "celsius") {
